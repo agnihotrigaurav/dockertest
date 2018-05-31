@@ -1,23 +1,9 @@
-box: ubuntu
-
 build:
-  services:
-    - id: postgres
-      name: postgres
-      env:
-        POSTGRES_USER: test
-        POSTGRES_PASSWORD: test
-        POSTGRES_DB: test
+  box: google/golang
   steps:
-    - script:
-      code: | 
-        apt-get update
-        apt-get -y install iputils-ping
-        apt-get -y install postgresql postgresql-contrib
-        export PGPASSWORD="test"
-        sleep 60
-        ping -c 5 postgres
-        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER -p $POSTGRES_PORT_5432_TCP_PORT
-        ping -c 10 postgres
-        
-        
+    - internal/docker-push: 
+        image-name: golang
+        username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME=<username>"  
+        password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=<password>" 
+        repository: docker.io/$USERNAME/golang
+        tag: latest    
