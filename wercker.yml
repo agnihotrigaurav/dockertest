@@ -5,5 +5,4 @@ build:
         image-name: golang
         username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME=<username>"  
         password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=<password>" 
-        repository: docker.io/$USERNAME/golang
-        tag: latest    
+        repository: $USERNAME/golang
