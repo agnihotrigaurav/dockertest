@@ -10,7 +10,6 @@ RUN apt-get install -y certbot
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
-RUN aws configure
 ADD test.sh .
 RUN ls -ltr
 RUN chmod 777 test.sh
