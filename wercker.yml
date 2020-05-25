@@ -1,5 +1,5 @@
 build:
-  box: google/golang
+  box: ubuntu
   steps:
     - internal/docker-build:
         dockerfile: Dockerfile
